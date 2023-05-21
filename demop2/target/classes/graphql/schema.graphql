@@ -1,0 +1,43 @@
+type Mutation{
+actualizarLibros(id:String,libroRequest:LibroRequest):Libro,
+eliminacionLibros(id:String):String
+}
+
+type Query{
+listadoLibros:[Libro],
+listadoLibrosPorId(id:String):Libro
+}
+
+type Autor{
+id_autor:Float,
+nombres:String,
+apellido:String,
+pais:String,
+libro:[Libro]
+}
+
+type Editorial{
+id_editorial:Float,
+nombre:String,
+pais:String,
+libro: [Libro]
+}
+
+type Libro{
+id:String,
+titulo:String
+descripcion:String,
+paginas:Int,
+edicion:String,
+autor:Autor,
+editorial:Editorial
+}
+
+input LibroRequest{
+    titulo: String,
+    descripcion: String,
+    paginas: Int,
+    edicion: String,
+    autorId: Float,
+    editorialId:Float
+}
